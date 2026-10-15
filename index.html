@@ -4,35 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#10090C">
-  <meta name="description" content="Shama's portfolio in Electronics, IoT and Python.">
-  <title>Shama Anjum Shameer | Portfolio</title>
+  <meta name="theme-color" content="#10090c">
+  <meta name="description" content="Shama Anjum Shameer's portfolio — Electronics and Communication Engineering, Python, IoT and embedded systems.">
+
+  <title>Shama Anjum Shameer | ECE Portfolio</title>
 
   <style>
     :root {
-      --bg: #10090C;
-      --card: #1C1116;
-      --maroon: #781F3A;
-      --accent: #C05A78;
-      --white: #FFF7F9;
-      --muted: #C2B2B8;
-      --border: #41212D;
+      --bg: #10090c;
+      --surface: #1b1116;
+      --surface2: #25151c;
+      --maroon: #842743;
+      --accent: #d87893;
+      --text: #fff5f7;
+      --muted: #c7b5bc;
+      --border: #482431;
+      --success: #9ed9b2;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    html {
       scroll-behavior: smooth;
     }
 
     body {
+      font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
-      color: var(--white);
-      font-family: Arial, sans-serif;
+      color: var(--text);
       line-height: 1.7;
     }
 
@@ -41,31 +41,38 @@
       text-decoration: none;
     }
 
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
     .container {
       width: min(1100px, 90%);
       margin: auto;
     }
 
-    .navbar {
+    header {
       position: sticky;
       top: 0;
       z-index: 10;
       background: rgba(16, 9, 12, 0.96);
       border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
     }
 
-    .nav-inner {
-      min-height: 76px;
+    nav {
+      min-height: 72px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 20px;
     }
 
     .logo {
-      font-size: 21px;
-      font-weight: bold;
-      letter-spacing: 2px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
     .logo span,
@@ -73,342 +80,701 @@
       color: var(--accent);
     }
 
-    nav {
+    .nav-links {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+      list-style: none;
+      font-size: 0.88rem;
     }
 
-    nav a {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    nav a:hover {
+    .nav-links a:hover {
       color: var(--accent);
     }
 
     .hero {
-      min-height: 570px;
-      display: flex;
-      align-items: center;
-      background:
-        radial-gradient(
-          circle at 85% 45%,
-          rgba(120, 31, 58, 0.24),
-          transparent 35%
-        );
-    }
-
-    .hero-inner {
+      min-height: 78vh;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.5fr 0.8fr;
       align-items: center;
-      gap: 45px;
-      padding-top: 55px;
-      padding-bottom: 55px;
+      gap: 55px;
+      padding-top: 75px;
+      padding-bottom: 75px;
     }
 
     .eyebrow {
       color: var(--accent);
-      letter-spacing: 4px;
-      font-size: 12px;
-      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      font-weight: 700;
     }
 
     h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(45px, 6vw, 76px);
-      line-height: 1.15;
-      margin: 16px 0;
+      font-size: clamp(2.5rem, 6vw, 4.7rem);
+      line-height: 1.12;
+      margin: 18px 0;
+      letter-spacing: -2px;
     }
 
-    h2 {
-      font-size: clamp(23px, 3vw, 30px);
-      line-height: 1.4;
+    h1 span {
+      color: var(--accent);
     }
 
-    .description {
+    .hero h2 {
       color: var(--muted);
-      max-width: 550px;
-      margin-top: 18px;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 18px;
     }
 
-    .buttons {
+    .intro {
+      color: var(--muted);
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 28px;
+      margin-top: 24px;
     }
 
     .btn {
       display: inline-block;
-      padding: 12px 19px;
       border: 1px solid var(--maroon);
-      border-radius: 7px;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    .btn-primary {
       background: var(--maroon);
+      color: white;
+      padding: 11px 20px;
+      border-radius: 7px;
+      font-weight: 700;
+      transition: 0.25s;
     }
 
     .btn:hover {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: #a23859;
       transform: translateY(-2px);
     }
 
-    .tagline {
-      color: var(--accent);
-      letter-spacing: 4px;
-      font-size: 11px;
-      margin-top: 28px;
+    .btn.secondary {
+      background: transparent;
+      border-color: var(--border);
     }
 
-    .visual {
+    .btn.secondary:hover {
+      border-color: var(--accent);
+    }
+
+    .hero-art {
       min-height: 300px;
       display: grid;
       place-items: center;
       position: relative;
     }
 
-    .orbit {
-      width: 260px;
-      height: 260px;
-      border: 1px solid var(--accent);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 0 60px rgba(120, 31, 58, 0.18);
-      background: radial-gradient(
-        circle,
-        rgba(120, 31, 58, 0.25),
-        transparent 70%
-      );
-    }
-
     .chip {
-      width: 110px;
-      height: 110px;
-      background: var(--card);
-      border: 2px solid var(--accent);
+      width: 210px;
+      height: 210px;
       display: grid;
       place-items: center;
-      font-family: Georgia, serif;
-      font-size: 58px;
-      box-shadow: 0 0 25px rgba(192, 90, 120, 0.15);
+      background: radial-gradient(circle, #542035, #1b1116 70%);
+      border: 1px solid var(--accent);
+      border-radius: 28px;
+      box-shadow: 0 0 65px rgba(132, 39, 67, 0.28);
+      transform: rotate(-5deg);
     }
 
-    .chip span {
+    .chip-inner {
+      width: 130px;
+      height: 130px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      font-size: 2.3rem;
+      font-weight: 800;
       color: var(--accent);
     }
 
-    .tech-tag {
-      position: absolute;
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 12px;
+    .chip-inner small {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
     }
 
-    .tag-one {
-      top: 15%;
-      left: 0;
-    }
-
-    .tag-two {
-      top: 28%;
-      right: 0;
-    }
-
-    .tag-three {
-      bottom: 13%;
-      left: 10%;
-    }
-
-    section.content-section {
+    section {
       padding: 75px 0;
-      border-top: 1px solid var(--border);
+      scroll-margin-top: 75px;
     }
 
-    .section-title {
-      font-family: Georgia, serif;
-      font-size: 38px;
-      margin: 10px 0 18px;
+    .section-heading {
+      margin-bottom: 32px;
     }
 
-    .section-text {
+    .section-heading p {
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-top: 5px;
+    }
+
+    .section-heading h2 span {
+      color: var(--accent);
+    }
+
+    .about-grid,
+    .project-grid,
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 26px;
+      border-radius: 13px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      font-size: 1.16rem;
+      margin-bottom: 12px;
+    }
+
+    .card p,
+    .card li {
       color: var(--muted);
-      max-width: 750px;
+      font-size: 0.94rem;
     }
 
-    .footer {
+    .card ul {
+      padding-left: 19px;
+      margin-top: 10px;
+    }
+
+    .card li {
+      margin-bottom: 7px;
+    }
+
+    .icon {
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 5px 11px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 23px;
+    }
+
+    .skill-group h3 {
+      margin-bottom: 8px;
+    }
+
+    .skill-group p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .timeline {
+      border-left: 2px solid var(--maroon);
+      margin-left: 8px;
+      padding-left: 27px;
+      display: grid;
+      gap: 25px;
+    }
+
+    .timeline-item {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 23px;
+      border-radius: 10px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      left: -34px;
+      top: 28px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      margin-top: 7px;
+    }
+
+    .status {
+      display: inline-block;
+      color: var(--success);
+      border: 1px solid #345742;
+      background: #15261b;
+      padding: 3px 9px;
+      border-radius: 5px;
+      font-size: 0.76rem;
+      margin-bottom: 12px;
+    }
+
+    .status.planned {
+      color: var(--accent);
+      border-color: var(--border);
+      background: var(--surface2);
+    }
+
+    .text-link {
+      display: inline-block;
+      color: var(--accent);
+      margin-top: 15px;
+      font-weight: 700;
+    }
+
+    .text-link:hover {
+      text-decoration: underline;
+    }
+
+    .contact-box {
+      text-align: center;
+      background: linear-gradient(135deg, #29121c, #160c11);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 25px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 12px auto 22px;
+    }
+
+    footer {
       border-top: 1px solid var(--border);
-      padding: 25px 0;
       text-align: center;
       color: var(--muted);
-      font-size: 13px;
+      padding: 25px 0;
+      font-size: 0.86rem;
     }
 
     @media (max-width: 760px) {
-      .nav-inner {
-        padding: 15px 0;
+      nav {
+        padding: 16px 0;
         align-items: flex-start;
         flex-direction: column;
       }
 
-      nav {
-        gap: 12px 18px;
+      .nav-links {
+        gap: 12px 17px;
       }
 
-      .hero-inner {
+      .hero {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 15px;
+        padding-top: 60px;
       }
 
-      .visual {
-        min-height: 290px;
+      .hero-art {
+        min-height: 240px;
       }
 
-      .orbit {
-        width: 225px;
-        height: 225px;
+      .chip {
+        width: 175px;
+        height: 175px;
       }
 
-      .section-title {
-        font-size: 32px;
+      .chip-inner {
+        width: 110px;
+        height: 110px;
+      }
+
+      .about-grid,
+      .project-grid,
+      .cert-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a href="#home" class="logo">
-        SHAMA<span>.</span>
-      </a>
-
-      <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="logo" href="#home">SHAMA<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="container hero-inner">
-        <div>
-          <p class="eyebrow">HELLO, I'M</p>
+    <section class="hero container" id="home">
+      <div>
+        <p class="eyebrow">Electronics · Technology · Innovation</p>
+        <h1>Hi, I'm <span>Shama Anjum Shameer.</span></h1>
+        <h2>B.E. Electronics and Communication Engineering Student</h2>
+        <p class="intro">
+          I am an aspiring engineer exploring the intersection of electronics,
+          embedded systems, IoT and programming. I enjoy learning by building
+          practical projects, experimenting with hardware and continuously
+          developing my technical skills.
+        </p>
+        <div class="actions">
+          <a class="btn" href="#projects">Explore My Projects ↗</a>
+          <a class="btn secondary" href="#contact">Connect With Me</a>
+        </div>
+      </div>
 
-          <h1>Shama Anjum<br><span class="accent">Shameer.</span></h1>
+      <div class="hero-art" aria-label="Electronic chip illustration">
+        <div class="chip">
+          <div class="chip-inner">
+            <div style="text-align:center">
+              <div>ECE</div>
+              <small>TECH</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <h2>Electronics & Communication Engineering Student</h2>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <p>Get to know me</p>
+          <h2>About <span>Me</span></h2>
+        </div>
 
-          <p class="description">
-            Exploring the world of electronics, Python, embedded
-            systems and the Internet of Things. I enjoy learning
-            new technologies and turning ideas into practical solutions.
+        <div class="about-grid">
+          <article class="card">
+            <div class="icon">🎓</div>
+            <h3>My Background</h3>
+            <p>
+              I am pursuing a Bachelor of Engineering in Electronics and
+              Communication Engineering. My learning combines engineering
+              fundamentals, programming and hands-on experimentation.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🔬</div>
+            <h3>My Interests</h3>
+            <p>
+              I am interested in embedded systems, sensors, IoT applications,
+              microcontrollers, electronics troubleshooting and Python-based
+              problem-solving.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🚀</div>
+            <h3>My Goal</h3>
+            <p>
+              I aim to strengthen my engineering knowledge, gain practical
+              industry experience and explore career opportunities in core
+              electronics and technology.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">📚</div>
+            <h3>How I Learn</h3>
+            <p>
+              I believe that understanding concepts and applying them through
+              practical work are equally important. I keep learning through
+              projects, courses and technical practice.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <p>What I work with</p>
+          <h2>Technical <span>Skills</span></h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-group">
+            <h3>⌨️ Programming</h3>
+            <p>Python, basic C programming, HTML, CSS and JavaScript.</p>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">C Basics</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </article>
+
+          <article class="skill-group">
+            <h3>⚡ Electronics & IoT</h3>
+            <p>Practical learning with microcontrollers, sensors and electronic components.</p>
+            <div class="tag-list">
+              <span class="tag">ESP32</span>
+              <span class="tag">Arduino IDE</span>
+              <span class="tag">Sensors</span>
+              <span class="tag">IoT</span>
+              <span class="tag">Embedded Systems</span>
+            </div>
+          </article>
+
+          <article class="skill-group">
+            <h3>🛠️ Tools & Learning</h3>
+            <p>Tools and technologies used in coursework and personal projects.</p>
+            <div class="tag-list">
+              <span class="tag">GitHub</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Data Science Basics</span>
+              <span class="tag">Microsoft Excel</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <p>Learning by building</p>
+          <h2>Featured <span>Projects</span></h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="card">
+            <div class="icon">🔎</div>
+            <span class="status">Prototype built</span>
+            <h3>Circuit Detective</h3>
+            <p>
+              An electronics troubleshooting learning project that combines
+              physical circuit work with a browser-based interface. The website
+              provides an interactive experience through Investigate and Reset
+              controls.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Electronics</span>
+              <span class="tag">ESP32</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <p style="margin-top:14px">
+              Project focus: interactive troubleshooting and circuit concepts.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icon">⚙️</div>
+            <span class="status planned">In progress</span>
+            <h3>IoT-Based Smart Machine Condition Monitoring System</h3>
+            <p>
+              An ongoing prototype exploring how a microcontroller and sensors
+              can monitor machine conditions and communicate useful readings
+              through a simple monitoring interface.
+            </p>
+            <div class="tag-list">
+              <span class="tag">ESP32</span>
+              <span class="tag">DHT11</span>
+              <span class="tag">MPU6050</span>
+              <span class="tag">IoT</span>
+              <span class="tag">LED Indicators</span>
+            </div>
+            <p style="margin-top:14px">
+              Planned monitoring: temperature, humidity and vibration.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <p>Industry exposure</p>
+          <h2>Internship & <span>Experience</span></h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="status">Completed</span>
+            <h3>Gilbarco Veeder-Root — Internship</h3>
+            <p>
+              Gained industry exposure related to fuel dispensing systems,
+              equipment and laboratory activities. The experience helped me
+              connect engineering concepts with practical industrial work.
+            </p>
+            <p>
+              I am grateful to the team members and mentors who supported my
+              learning during the internship.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <span class="status">Hands-on learning</span>
+            <h3>Electronics & Sensor Workshop</h3>
+            <p>
+              Participated in a practical, interactive learning session on
+              different types of sensors, strengthening my interest in
+              electronics and sensor-based applications.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <p>My learning journey</p>
+          <h2>Education & <span>Certifications</span></h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <h3>Bachelor of Engineering — Electronics and Communication Engineering</h3>
+            <p>
+              Currently pursuing B.E. ECE. Building knowledge in electronics,
+              communication systems, programming and engineering mathematics.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <h3>Python for Data Science — NPTEL</h3>
+            <p>
+              Completed the course and gained learning experience in Python
+              applications for data science.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <h3>IoT & Electronics — Infosys Springboard</h3>
+            <p>
+              Completed learning modules related to IoT and electronics,
+              alongside practical exploration of technology concepts.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <h3>Artificial Intelligence & Data Science Learning</h3>
+            <p>
+              Completed introductory learning modules covering topics such as
+              AI, deep learning, natural language processing, computer vision
+              and data science.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <h3>Additional Technical Learning</h3>
+            <p>
+              Further learning includes C and C++ coursework, basic Python,
+              IoT concepts and productivity tools.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <p class="eyebrow">Let's connect</p>
+          <h2>Have an idea or opportunity?</h2>
+          <p>
+            I welcome opportunities to learn, collaborate on engineering
+            projects and connect with people interested in electronics,
+            embedded systems and technology.
           </p>
 
-          <div class="buttons">
-            <a href="#projects" class="btn btn-primary">
-              Explore My Projects →
+          <div class="actions" style="justify-content:center">
+            <a class="btn"
+               href="https://www.linkedin.com/in/shama-anjum-shameer-422146369/"
+               target="_blank" rel="noopener noreferrer">
+              LinkedIn ↗
             </a>
-            <a href="#about" class="btn">
-              About Me
+
+            <a class="btn secondary"
+               href="https://leetcode.com/u/shama-anjum-shameer/"
+               target="_blank" rel="noopener noreferrer">
+              LeetCode ↗
             </a>
           </div>
 
-          <p class="tagline">SMALL STEPS. BIG DREAMS.</p>
+          <p style="margin-top:25px;font-size:0.85rem">
+            Interested in my work? Explore my projects and follow my learning journey.
+          </p>
         </div>
-
-        <div class="visual" aria-label="Electronics-inspired design">
-          <div class="orbit">
-            <div class="chip"><span>S</span></div>
-          </div>
-          <div class="tech-tag tag-one">Electronics</div>
-          <div class="tech-tag tag-two">Python</div>
-          <div class="tech-tag tag-three">IoT & ESP32</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section" id="about">
-      <div class="container">
-        <p class="eyebrow">01 / ABOUT ME</p>
-        <h2 class="section-title">My Journey Starts Here.</h2>
-        <p class="section-text">
-          I am an Electronics and Communication Engineering student
-          interested in electronics, programming and practical
-          technology projects. I am continuously developing my
-          technical skills through courses and hands-on learning.
-        </p>
-      </div>
-    </section>
-
-    <section class="content-section" id="skills">
-      <div class="container">
-        <p class="eyebrow">02 / SKILLS</p>
-        <h2 class="section-title">What I'm Learning.</h2>
-        <p class="section-text">
-          Python programming, electronics fundamentals, IoT,
-          ESP32 and embedded systems.
-        </p>
-      </div>
-    </section>
-
-    <section class="content-section" id="projects">
-      <div class="container">
-        <p class="eyebrow">03 / PROJECTS</p>
-        <h2 class="section-title">Ideas Into Reality.</h2>
-        <p class="section-text">
-          Circuit Detective — an electronics troubleshooting project.
-          <br><br>
-          IoT-Based Smart Machine Condition Monitoring System —
-          an ESP32-based project in development.
-        </p>
-      </div>
-    </section>
-
-    <section class="content-section" id="education">
-      <div class="container">
-        <p class="eyebrow">04 / EDUCATION & ACHIEVEMENTS</p>
-        <h2 class="section-title">My Learning Journey.</h2>
-        <p class="section-text">
-          B.E. Electronics and Communication Engineering.
-          <br>
-          NPTEL Python for Data Science and Infosys Springboard
-          learning experiences.
-        </p>
-      </div>
-    </section>
-
-    <section class="content-section" id="contact">
-      <div class="container">
-        <p class="eyebrow">05 / CONTACT</p>
-        <h2 class="section-title">Let's Connect.</h2>
-        <p class="section-text">
-          Thank you for visiting my portfolio. Connect with me
-          through my professional profiles.
-        </p>
-        <!-- Add your verified profile links here later. -->
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="container">
-      Designed & built by Shama Anjum Shameer.
+      <p>Designed and built by Shama Anjum Shameer</p>
+      <p>Electronics • IoT • Programming • Continuous Learning</p>
+      <p>© <span id="year">2026</span> All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
+
